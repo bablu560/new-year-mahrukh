@@ -4,12 +4,12 @@ const Countdown = ({ onComplete }) => {
     // Use useMemo ensures targetDate is calculated ONLY ONCE when the component first loads.
     // Without this, every time the seconds update, the timer resets to 5 seconds again!
     const targetDate = React.useMemo(() => {
-        const currentYear = new Date().getFullYear();
         // PRODUCTION MODE: Uncomment the line below for the real New Year countdown
-        return new Date(`January 1, ${currentYear + 1} 00:00:00`).getTime();
+        // const currentYear = new Date().getFullYear();
+        // return new Date(`January 1, ${currentYear + 1} 00:00:00`).getTime();
 
-        // TEST MODE: 5 seconds from this exact moment
-        // return new Date().getTime() + 5000;
+        // TEST MODE: 10 seconds from this exact moment
+        return new Date().getTime() + 10000;
     }, []);
 
     const [timeLeft, setTimeLeft] = useState(targetDate - new Date().getTime());
@@ -42,7 +42,7 @@ const Countdown = ({ onComplete }) => {
 
     return (
         <section className="countdown-section" style={{ minHeight: 'auto', padding: '0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h2 className="text-center" style={{ fontSize: '2.5rem', marginBottom: '3rem' }}>Countdown to Our New Beginning</h2>
+            <h2 className="text-center" style={{ fontSize: '2.5rem', marginBottom: '3rem' }}>Surprise Loading</h2>
 
             <div className="timer-container">
                 <TimeBox value={days} label="Days" />
